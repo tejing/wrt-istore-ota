@@ -195,8 +195,7 @@ jobs:
           ${{ env.COMMIT_MESSAGE }}
           ${{ env.COMMIT_HASH }}
 
-        
-  generate-ota-json:
+    generate-ota-json:
     name: Generate OTA JSON
     needs: build
     runs-on: ubuntu-latest
