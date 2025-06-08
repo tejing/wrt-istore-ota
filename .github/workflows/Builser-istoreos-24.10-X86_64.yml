@@ -67,7 +67,7 @@ jobs:
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "$(date +"%Y%m%d%M") > version" >> $GITHUB_ENV
+        echo "FIRMWARE_VERSION=$(date +"%Y%m%d%M")" >> $GITHUB_ENV
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         COMMIT_AUTHOR=$(git show -s --date=short --format="作者: %an")
         echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
