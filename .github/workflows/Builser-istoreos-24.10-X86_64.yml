@@ -77,6 +77,10 @@ jobs:
         echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+        echo "date=$(date +'%Y%m%d%M')" >> $GITHUB_ENV
+        echo "date2=$(date +'%Y%m%d%M')" >> $GITHUB_ENV
+        VERSION="$(echo "${{github.event.action}}" | grep -Eo " [0-9.]+" | sed -e 's/ //')" || true
+        [ "$VERSION" ] && echo "VERSION=$VERSION" >> $GITHUB_ENV || echo "VERSION=$(date +'%Y%m%d%M')" >> $GITHUB_ENV
 
     - name: 生成变量
       run: |
