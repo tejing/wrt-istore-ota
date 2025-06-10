@@ -4,7 +4,7 @@
 [![Workflow Status](https://github.com/Jaykwok2999/istoreos-actions/actions/workflows/Builser-istoreos-24.10-X86_64.yml/badge.svg)](https://github.com/Jaykwok2999/istoreos-actions/actions/workflows/Builser-istoreos-24.10-X86_64.yml)
 
 ## 基本状况
-| 基本                          | 状态 |
+| 系统支持                      | 状态 |
 |:----------------------------:|:----:|
 | 支持OTA在线升级                | ✅  |
 
