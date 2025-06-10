@@ -3,6 +3,7 @@
 [![iStore使用文档](https://img.shields.io/badge/使用文档-iStore%20OS-brightgreen?style=flat-square)](https://doc.linkease.com/zh/guide/istoreos) [![最新固件下载](https://img.shields.io/github/v/release/draco-china/istoreos-rk35xx-actions?style=flat-square&label=最新固件下载)](../../releases/latest)
 [![Workflow Status](https://github.com/Jaykwok2999/istoreos-actions/actions/workflows/Builser-istoreos-24.10-X86_64.yml/badge.svg)](https://github.com/Jaykwok2999/istoreos-actions/actions/workflows/Builser-istoreos-24.10-X86_64.yml)
 
+## 基本状况
 | 基本                          | 状态 |
 | 支持OTA在线升级                | ✅  |
 
