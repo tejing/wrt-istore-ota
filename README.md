@@ -14,15 +14,15 @@
 | HomeProxy                | ✅   | TTY 终端         | ✅   |
 | pushbot                  | ✅   |  Docker          | ✅   |
 | openclash                | ✅   | DiskMan 磁盘管理 | ✅   |
-| MosDNS                   | ✅   | Socat           | ✅   |
+| MosDNS                   | ✅   | Socat端口转发           | ✅   |
 | 动态 DNS                 | ✅   | UPnP            | ✅   |
-| DDNS-GO                 | ✅   | mwan3            | ✅   |
-| smartdns                | ✅   | turboacc         | ✅   |
-| FRP 客户端               | ✅   |                 | ⏳   |
-| msd_lite                | ✅   |                 | ⏳   |
-| 网络共享（Samba）        | ✅   |                 | ⏳   |
-| omcproxy                 | ✅   |               | ⏳   |
-| udpxy                    | ✅   |               | ⏳   |
+| DDNS-GO                 | ✅   | mwan3负载均匀            | ✅   |
+| smartdns                | ✅   | turboacc网络加速         | ✅   |
+| FRP 客户端               | ✅   | taskplan任务设置         | ✅   |
+| msd_lite组播转换         | ✅   |  tailscale       | ✅   |
+| 网络共享（Samba）        | ✅   |  iStore商店      | ✅   |
+| omcproxy组播代理         | ✅   |  onliner在线用户    | ✅   |
+| udpxy组播转换            | ✅   |               | ⏳   |
 | Alist 文件列表           | ✅   |                | ⏳   |
 | filebrowser              | ✅   |               | ⏳   |
 
