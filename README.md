@@ -8,6 +8,31 @@
 |:----------------------------:|:----:|
 | 支持OTA在线升级                | ✅  |
 
+| 内置插件                 | 状态 | 内置插件         | 状态 |
+|:------------------------:|:----:|:----------------:|:----:|
+| PassWall                 | ✅   | iStoreOS界面     | ✅   |
+| HomeProxy                | ✅   | TTY 终端         | ✅   |
+| pushbot                  | ✅   |  Docker          | ✅   |
+| openclash                | ✅   | DiskMan 磁盘管理 | ✅   |
+| MosDNS                   | ✅   | Socat           | ✅   |
+| 动态 DNS                 | ✅   | UPnP            | ✅   |
+| DDNS-GO                 | ✅   | mwan3            | ✅   |
+| smartdns                | ✅   | turboacc         | ✅   |
+| FRP 客户端               | ✅   |                 | ⏳   |
+| msd_lite                | ✅   |                 | ⏳   |
+| 网络共享（Samba）        | ✅   |                 | ⏳   |
+| omcproxy                 | ✅   |               | ⏳   |
+| udpxy                    | ✅   |               | ⏳   |
+| Alist 文件列表           | ✅   |                | ⏳   |
+| filebrowser              | ✅   |               | ⏳   |
+
+✅ 可用
+
+❌ 不可用
+
+⏳ 计划中
+
+
 ## 默认配置
 
 - IP: `http://192.168.2.1` or `http://iStoreOS.lan/`
