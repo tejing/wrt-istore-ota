@@ -17,7 +17,7 @@ env:
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86_64_iStoreOS_24.10.0
+  FIRMWARE_TAG: $(date +"%Y%m%d%M")
   TZ: Asia/Shanghai
 
 jobs:
