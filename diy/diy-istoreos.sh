@@ -109,7 +109,7 @@ function merge_package() {
 git_sparse_clone main https://github.com/Jaykwok2999/socat luci-app-socat
 git_sparse_clone main https://github.com/Jaykwok2999/socat socat
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-argon-config
-git_sparse_clone main https://github.com/zijieKwok/github-ota luci-app-ota
+git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
 
 # golong1.24.2依赖
