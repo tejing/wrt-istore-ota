@@ -69,7 +69,7 @@ rm -rf feeds/luci/applications/luci-app-argon-config
 rm -rf feeds/third/luci-theme-argon
 rm -rf feeds/third/luci-app-argon-config
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
-#rm -rf feeds/istoreos_ipk/theme/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-dockerman
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -111,6 +111,7 @@ git_sparse_clone main https://github.com/Jaykwok2999/socat socat
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-argon-config
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
 
 # golong1.24.2依赖
 rm -rf feeds/packages/lang/golang
