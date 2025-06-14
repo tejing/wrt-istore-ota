@@ -178,7 +178,6 @@ jobs:
           👤 用户名: root
           🔒 默认密码: password
 
-        
   generate-ota-json:
     name: Generate OTA JSON
     needs: build
