@@ -64,6 +64,7 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo $(date +"%Y%m%d%M") > version
+        echo "COMMIT_DATE=$(date +"%Y-%m-%d %H:%M")" >> $GITHUB_ENV
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
 
     - name: 生成变量
