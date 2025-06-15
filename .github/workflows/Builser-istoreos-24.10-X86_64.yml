@@ -203,7 +203,7 @@ jobs:
             });
 
             const asset = latest.data.assets.find(a => 
-              a.name === 'istoreos-x86-64-generic-squashfs-combined-efi.img.gz');
+              a.name === 'wikjxwrt-x86-64-generic-ext4-combined-efi.img.gz');
 
             if (!asset) {
               core.setFailed("Target firmware not found in the latest release.");
