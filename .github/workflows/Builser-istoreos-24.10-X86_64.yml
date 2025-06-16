@@ -63,8 +63,8 @@ jobs:
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "DATE=$(date +"%Y%m%d")" >> $GITHUB_ENV
-        echo "COMMIT_DATE=$DATE" >> $GITHUB_ENV
+        echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
+        echo "DATE=$COMMIT_DATE" >> $GITHUB_ENV
         echo $(date +"%Y%m%d%M") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
 
