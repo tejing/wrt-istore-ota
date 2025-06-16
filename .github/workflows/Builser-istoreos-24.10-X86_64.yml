@@ -246,5 +246,5 @@ jobs:
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add fw.json
-          git commit -m "Update fw.json @ $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git commit -m "Update fw.json @ $COMMIT_DATE')" || echo "No changes to commit"
           git push origin api
