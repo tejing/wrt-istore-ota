@@ -3,7 +3,7 @@ name: Builser-istoreos-24.10-X86_64
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 14 * * *
+    - cron: 0 13 * * *
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos.git
