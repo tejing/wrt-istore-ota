@@ -3,7 +3,7 @@ name: Builser-istoreos-24.10-X86_64
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 13 * * *
+    - cron: 0 22 * * *
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos.git
@@ -63,10 +63,10 @@ jobs:
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "DATE=$(TZ=UTC-8 date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        echo "DATE=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
         echo "COMMIT_DATE=$DATE" >> $GITHUB_ENV
-        echo $(TZ=UTC-8 date +"%Y%m%d%M") > version.date
-        echo $(TZ=UTC-8 date +"%Y%m%d%M") > version
+        echo $(date +"%Y%m%d%M") > version.date
+        echo $(date +"%Y%m%d%M") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
 
     - name: 生成变量
@@ -80,7 +80,7 @@ jobs:
         echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_ENV
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
-        echo "FIRMWARE_TAG=$(TZ=UTC-8 date +"%Y%m%d")" >> $GITHUB_ENV
+        echo "FIRMWARE_TAG=$(date +"%Y%m%d")" >> $GITHUB_ENV
 
     - name: 缓存工具链
       if: env.CACHE_TOOLCHAIN == 'true'
@@ -128,7 +128,7 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
-        echo "FILE_DATE=$(TZ=UTC-8 date +"%Y.%m.%d")" >> $GITHUB_ENV
+        echo "FILE_DATE=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
 
     - name: 检查空间使用情况
       if: (!cancelled())
