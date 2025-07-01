@@ -118,8 +118,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 
 # SSRP & Passwall
 git clone https://github.com/Jaykwok2999/luci-app-passwall.git package/passwall -b main
-git clone https://github.com/vernesong/OpenClash.git package/openclash -b dev
-
 
 # unzip
 rm -rf feeds/packages/utils/unzip
