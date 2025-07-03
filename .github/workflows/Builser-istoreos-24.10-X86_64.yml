@@ -64,10 +64,11 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo "DATE=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        COMMIT_DATE=$(git show -s --date=short --format="%ci")
         echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
         echo $(date +"%Y%m%d%M") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        echo "VERSION_DATE=$OPENWRT_PATH" >> $GITHUB_ENV
+        echo "VERSINON_DATE=$(git log -1 --format="%ct")
 
     - name: 生成变量
       run: |
