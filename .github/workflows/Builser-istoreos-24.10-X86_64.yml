@@ -64,8 +64,8 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo "DATE=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-        echo "COMMIT_DATE=$DATE" >> $GITHUB_ENV
-        echo $(date +"%Y%m%d%M") > version.date
+        echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
+        echo "VERSION_DATE=$COMMIT_DATE" >> $GITHUB_ENV
         echo $(date +"%Y%m%d%M") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
 
@@ -246,5 +246,5 @@ jobs:
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add fw.json
-          git commit -m "Update fw.json @ $(TZ=UTC-8 date +'%Y-%m-%d %H:%M:%S')')" || echo "No changes to commit"
+          git commit -m "Update fw.json @ $(date +'%Y-%m-%d %H:%M:%S')')" || echo "No changes to commit"
           git push origin api
