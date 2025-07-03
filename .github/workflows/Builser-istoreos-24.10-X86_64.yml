@@ -66,7 +66,8 @@ jobs:
         echo "DATE=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
         echo $(date +"%Y%m%d%M") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        echo "VERSINON_DATE=$(git show -s --date=short --format=format)"
+        SOURCE_DATE_EPOCH="$(git log -1 --format=format:%ct)"
+        echo "VERSION_DATE=$SOURCE_DATE_EPOCH" >> $GITHUB_ENV
 
     - name: 生成变量
       run: |
