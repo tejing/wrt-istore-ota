@@ -68,7 +68,7 @@ jobs:
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         echo "timestamp=$(date +%s%3N)" >> $GITHUB_ENV
         echo "timestamp=$timestamp" >> $GITHUB_ENV
-        echo timestamp > version.date
+        echo $timestamp > version.date
 
     - name: 生成变量
       run: |
