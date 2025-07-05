@@ -72,6 +72,7 @@ jobs:
         SOURCE_DATE_EPOCH="$(date +%s)"
         echo "SOURCE_DATE_EPOCH=$SOURCE_DATE_EPOCH" >> $GITHUB_ENV
         echo "VERSION_DATE=$SOURCE_DATE_EPOCH" >> $GITHUB_ENV
+        echo "VERSION_DATE=$SOURCE_DATE_EPOCH" >> version.date
 
     - name: 生成变量
       run: |
