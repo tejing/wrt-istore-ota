@@ -71,6 +71,7 @@ jobs:
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         echo SOURCE_DATE_EPOCH="$(date +%s)" >> $GITHUB_ENV
         echo "SOURCE_DATE_EPOCH=$SOURCE_DATE_EPOCH" >> $GITHUB_ENV
+        echo "$SOURCE_DATE_EPOCH" >> $GITHUB_ENV
 
     - name: 生成变量
       run: |
@@ -84,7 +85,6 @@ jobs:
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
         echo "FIRMWARE_TAG=$(date +"%Y%m%d")" >> $GITHUB_ENV
-        echo ${{ env.SOURCE_DATE_EPOCH }} > version.date
 
     - name: 缓存工具链
       if: env.CACHE_TOOLCHAIN == 'true'
