@@ -14,6 +14,8 @@
 
 ![screenshots](./diy/iStoreOS2.png)
 
+![screenshots](./diy/iStoreOS3.png)
+
 | 内置插件                 | 状态 | 内置插件         | 状态 |
 |:------------------------:|:----:|:----------------:|:----:|
 | PassWall                 | ✅   | iStoreOS界面     | ✅   |
