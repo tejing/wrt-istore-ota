@@ -51,8 +51,9 @@ sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser
 sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
 
 # 移除要替换的包
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,socat}
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,socat,miniupnpd}
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
+rm -rf feeds/luci/applications/luci-app-upnp
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/third_party/luci-app-LingTiGameAcc
 rm -rf feeds/third_party/luci-app-socat
@@ -111,6 +112,12 @@ git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-arg
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
+
+rm -rf feeds/istoreos_ipk/luci-app-openclash
+git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
+
 
 # golong1.25.x依赖
 rm -rf feeds/packages/lang/golang
