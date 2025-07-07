@@ -32,9 +32,6 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share
 sed -i 's/services/nas/g' feeds/nas-packages-luci/luci/luci-app-linkease/luasrc/controller/linkease.lua
 sed -i 's/services/nas/g' feeds/nas-packages-luci/luci/luci-app-linkease/luasrc/view/linkease_status.htm
 
-# upnp调至NAS
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
-
 # Alist调至NAS
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
 sed -i 's/msgstr "AList"/msgstr "AList文件列表"/g' feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
@@ -126,6 +123,9 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 # SSRP & Passwall
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
 cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
+
+# upnp调至NAS
+sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
 # unzip
 rm -rf feeds/packages/utils/unzip
