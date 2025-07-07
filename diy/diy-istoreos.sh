@@ -124,7 +124,8 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 # SSRP & Passwall
-git clone https://github.com/Jaykwok2999/luci-app-passwall.git package/passwall -b main
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
+cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
 
 # unzip
 rm -rf feeds/packages/utils/unzip
