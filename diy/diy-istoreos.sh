@@ -116,6 +116,8 @@ rm -rf feeds/istoreos_ipk/luci-app-openclash
 git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
 
 
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwallpackages
+
 # golong1.25.x依赖
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
