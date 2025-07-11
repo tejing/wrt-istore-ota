@@ -6,7 +6,7 @@ on:
 
 # 定时触发编译
   schedule:
-    - cron: 45 16 * * *
+    - cron: 50 16 * * *
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos.git
