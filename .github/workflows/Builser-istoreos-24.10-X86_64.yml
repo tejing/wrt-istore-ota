@@ -81,7 +81,7 @@ jobs:
         DEVICE_TARGET=$(cat .config | grep CONFIG_TARGET_BOARD | awk -F '"' '{print $2}')
         echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_ENV
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
-        echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
+        echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENVV
 
     - name: 缓存工具链
       if: env.CACHE_TOOLCHAIN == 'true'
@@ -146,11 +146,15 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       run: |
         cd $OPENWRT_PATH/bin/targets/*/*
+        
+        mv istoreos-x86-64-generic-squashfs-combined-efi.img.gz istoreos-24.10.2-$(date +"%Y%m%d%H")-x86-64-squashfs-combined-efi.img.gz
+        mv istoreos-x86-64-generic-squashfs-combined.img.gz istoreos-24.10.2-$(date +"%Y%m%d%H")-x86-64-squashfs-combined.img.gz
+
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
-        rm -rf packages feeds.buildinfo version.buildinfo config.buildinfo istoreos-x86-64-generic.manifest istoreos-x86-64-generic-kernel.bin
+        rm -rf packages feeds.buildinfo version.buildinfo
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
@@ -167,9 +171,10 @@ jobs:
       with:
         name: iStoreOS-24.10.2-X86_64 for ${{ env.DATE }}
         allowUpdates: true
-        tag: ${{ env.FIRMWARE_TAG }}
+        #tag: ${{ env.FIRMWARE_TAG }}
+        tag: iStoreOS
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: ${{ env.FIRMWARE_PATH }}/*
+        artifacts: ${{ env.FIRMWARE_PATH }}/istoreos-24.10.2*.img.gz
         body: |
           ### 📒 固件信息
           💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
@@ -181,19 +186,19 @@ jobs:
           🔒 默认密码: password
 
   generate-ota-json:
-    name: Generate OTA JSON
+    name: 生成OTA升级文件
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
     
     steps:
-      - name: Checkout main branch
+      - name: 检出主分支
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Get latest release info
+      - name: 获取最新发布信息
         id: get_release
         uses: actions/github-script@v7
         with:
@@ -202,44 +207,41 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
-
             const asset = latest.data.assets.find(a => 
-              a.name === 'istoreos-x86-64-generic-squashfs-combined-efi.img.gz');
-
+              a.name.includes('istoreos-24.10.2') && a.name.endsWith('efi.img.gz'));
             if (!asset) {
-              core.setFailed("Target firmware not found in the latest release.");
+              core.setFailed("Target firmware not found in the latest release. ");
               return;
             }
-
             const crypto = require('crypto');
             const response = await fetch(asset.browser_download_url);
             const buffer = await response.arrayBuffer();
             const sha256 = crypto.createHash('sha256').update(Buffer.from(buffer)).digest('hex');
-
             const workflowRun = await github.rest.actions.getWorkflowRun({
              owner: context.repo.owner,
              repo: context.repo.repo,
              run_id: process.env.GITHUB_RUN_ID,
             });
-
             const workflowStartTime = workflowRun.data.run_started_at;
             const buildDate = Math.floor(new Date(workflowStartTime).getTime() / 1000);
-
+            
+            // 🔧 在这里添加代理前缀
+            const proxiedUrl = 'https://github.71557.dpdns.org/' + asset.browser_download_url;    
+            
             const json = {
               "x86_64": [
                 {
                   "build_date": String(buildDate),
                   "sha256sum": sha256,
-                  "url": asset.browser_download_url
+                  "url": proxiedUrl  // 使用带代理的URL
                 }
               ]
             };
-
             const fs = require('fs');
             fs.mkdirSync('tmp-api', { recursive: true });
             fs.writeFileSync('tmp-api/fw.json', JSON.stringify(json, null, 4));
-
-      - name: Checkout api branch
+            
+      - name: 检出API分支
         run: |
           git fetch origin api:api
           git checkout api
