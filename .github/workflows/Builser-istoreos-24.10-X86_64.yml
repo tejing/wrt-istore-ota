@@ -82,6 +82,7 @@ jobs:
         echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_ENV
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
+        #echo "FIRMWARE_TAG=$(date +"%Y%m%d%H")" >> $GITHUB_ENV
 
     - name: 缓存工具链
       if: env.CACHE_TOOLCHAIN == 'true'
@@ -146,10 +147,6 @@ jobs:
       if: steps.compile.outputs.status == 'success'
       run: |
         cd $OPENWRT_PATH/bin/targets/*/*
-        
-        mv istoreos-x86-64-generic-squashfs-combined-efi.img.gz istoreos-24.10.2-$(date +"%Y%m%d%H")-x86-64-squashfs-combined-efi.img.gz
-        mv istoreos-x86-64-generic-squashfs-combined.img.gz istoreos-24.10.2-$(date +"%Y%m%d%H")-x86-64-squashfs-combined.img.gz
-
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
@@ -162,19 +159,18 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE != 'true'
       uses: actions/upload-artifact@main
       with:
-        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FIRMWARE_TAG }}
+        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FIRMWARE_VERSION }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE_PATH }}
 
     - name: 上传固件以发布Release
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE == 'true'
       uses: ncipollo/release-action@v1
       with:
-        name: iStoreOS-24.10.2-X86_64 for ${{ env.DATE }}
+        name: R${{ env.DATE }} for ${{ env.FIRMWARE_TAG }}
         allowUpdates: true
-        #tag: ${{ env.FIRMWARE_TAG }}
-        tag: iStoreOS
+        tag: ${{ env.FIRMWARE_TAG }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: ${{ env.FIRMWARE_PATH }}/istoreos-24.10.2*.img.gz
+        artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
           ### 📒 固件信息
           💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
