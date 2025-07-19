@@ -227,7 +227,7 @@ jobs:
             const buildDate = Math.floor(new Date(workflowStartTime).getTime() / 1000);
             
             // 🔧 在这里添加代理前缀
-            const proxiedUrl = 'https://github.71557.dpdns.org/' + asset.browser_download_url;    
+            const proxiedUrl = 'https://github.abskoop.workers.dev/' + asset.browser_download_url;    
             
             const json = {
               "x86_64": [
