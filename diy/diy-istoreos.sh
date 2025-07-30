@@ -148,21 +148,6 @@ sed -i 's,发送,Transmission,g' feeds/luci/applications/luci-app-transmission/p
 sed -i 's,frp 服务器,frps 服务器,g' feeds/luci/applications/luci-app-frps/po/zh_Hans/frps.po
 sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/po/zh_Hans/frpc.po
 
-# 必要的补丁
-pushd feeds/luci
-   curl -s https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
-popd
-
-pushd
-   curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-popd
-
-# NTP
-sed -i 's/0.openwrt.pool.ntp.org/ntp1.aliyun.com/g' package/base-files/files/bin/config_generate
-sed -i 's/1.openwrt.pool.ntp.org/ntp2.aliyun.com/g' package/base-files/files/bin/config_generate
-sed -i 's/2.openwrt.pool.ntp.org/time1.cloud.tencent.com/g' package/base-files/files/bin/config_generate
-sed -i 's/3.openwrt.pool.ntp.org/time2.cloud.tencent.com/g' package/base-files/files/bin/config_generate
-
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
 cp -af feeds/istoreos_ipk/patch/get_source_date_epoch.sh scripts/
@@ -176,8 +161,6 @@ cp -af feeds/istoreos_ipk/patch/istoreos-24.10/banner package/base-files/files/e
 rm -rf feeds/packages/net/tailscale
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
-# 增加驱动补丁
-cp -af feeds/istoreos_ipk/patch/diy/patches-6.6/996-intel-igc-i225-i226-disable-eee.patch target/linux/x86/patches-6.6/
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
