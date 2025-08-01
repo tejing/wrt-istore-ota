@@ -11,8 +11,8 @@ mkdir -p files/etc/opkg
 wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
 wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
 
-#mkdir -p files/root
-#wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
+mkdir -p files/root
+wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
 
 # 修改默认IP
 sed -i 's/192.168.100.1/192.168.2.1/g' package/istoreos-files/Makefile
@@ -40,7 +40,7 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share
 
 # linkease调至NAS
 rm -rf feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
-cp -af feeds/istoreos_ipk/diy/index.js feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
+cp -af feeds/istoreos_ipk/patch/diy/index.js feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
 sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/controller/linkease.lua
 sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/view/linkease_status.htm
 
