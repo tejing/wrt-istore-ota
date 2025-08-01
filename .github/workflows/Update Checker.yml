@@ -38,4 +38,4 @@ jobs:
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        event-type: lede Source Code Update
+        event-type: iStoreOS Source Code Update
