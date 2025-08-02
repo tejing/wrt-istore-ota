@@ -72,7 +72,7 @@ rm -rf feeds/istoreos_ipk/patch/istoreos-files
 rm -rf feeds/istoreos_ipk/vlmcsd
 rm -rf feeds/istoreos_ipk/patch/wall-luci/luci-app-vlmcsd
 rm -rf package/diy/luci-app-ota
-rm -rf feeds/istoreos_ipk/linkease
+# rm -rf feeds/istoreos_ipk/linkease
 
 
 # istoreos-theme
