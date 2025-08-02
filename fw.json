@@ -1,8 +1,8 @@
 {
     "x86_64": [
         {
-            "build_date": "1754108381",
-            "sha256sum": "de1abd66fc27e7ad1530ca418e8c37bf12e7ab7330f1c0930d3a35e92b0383cb",
+            "build_date": "1754127550",
+            "sha256sum": "4e3843a30d29c8b646996f3fd310c48bbaa2dea862eaf81bf51a4f3ed3e2455e",
             "url": "https://pro.sos07.eu.org/https://github.com/Jaykwok2999/istoreos-actions/releases/download/iStoreOS/istoreos-x86-64-generic-squashfs-combined-efi.img.gz"
         }
     ]
