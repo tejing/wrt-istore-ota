@@ -39,10 +39,10 @@ sed -i 's/MultiWAN 管理器/负载均衡/g' feeds/luci/applications/luci-app-mw
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 
 # linkease调至NAS
-rm -rf feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
-cp -af feeds/istoreos_ipk/patch/diy/index.js feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
-sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/controller/linkease.lua
-sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/view/linkease_status.htm
+# rm -rf feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
+# cp -af feeds/istoreos_ipk/patch/diy/index.js feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
+# sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/controller/linkease.lua
+# sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/view/linkease_status.htm
 
 
 # Alist调至NAS
