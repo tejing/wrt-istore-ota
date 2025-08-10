@@ -178,7 +178,7 @@ jobs:
         name: istoreos-24.10.2 for ${{ env.DATE }}
         allowUpdates: true
         tag: ${{ env.FIRMWARE_TAG }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.REPO_TOKEN }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
           ### 📒 固件信息
