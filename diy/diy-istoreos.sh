@@ -15,8 +15,8 @@ mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
 
 # 修改默认IP
-sed -i 's/192.168.100.1/192.168.2.1/g' package/istoreos-files/Makefile
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.100.1/192.168.50.1/g' package/istoreos-files/Makefile
+sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_generate
 
 # TTYD
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
