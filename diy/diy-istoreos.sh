@@ -128,6 +128,7 @@ git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-arg
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-pppoe-relay
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
 
