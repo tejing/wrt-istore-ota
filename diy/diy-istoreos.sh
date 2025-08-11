@@ -86,6 +86,8 @@ rm -rf feeds/third/luci-theme-argon
 rm -rf feeds/third/luci-app-argon-config
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-dockerman
+echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+echo -e "msgstr \"魔法网络\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
