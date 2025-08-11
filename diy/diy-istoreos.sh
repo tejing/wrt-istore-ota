@@ -6,13 +6,13 @@ wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/
 wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
 
 mkdir -p files/etc
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
+wget -qO- https://raw.githubusercontent.com/tejing/wrt-istore-ota/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
 mkdir -p files/etc/opkg
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
+wget -qO- https://raw.githubusercontent.com/tejing/wrt-istore-ota/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
+wget -qO- https://raw.githubusercontent.com/tejing/wrt-istore-ota/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
 
 mkdir -p files/root
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
+wget -qO- https://raw.githubusercontent.com/tejing/wrt-istore-ota/refs/heads/main/etc/.profile > files/root/.profile
 
 # 修改默认IP
 sed -i 's/192.168.100.1/192.168.2.1/g' package/istoreos-files/Makefile
@@ -173,7 +173,7 @@ sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/package
 
 # 必要的补丁
 pushd feeds/luci
-   curl -s https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
+   curl -s https://raw.githubusercontent.com/tejing/wrt-istore-ota/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
 popd
 
 pushd
