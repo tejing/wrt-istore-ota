@@ -60,16 +60,6 @@ jobs:
         sudo -E apt-get -y install clang
         sudo timedatectl set-timezone "$TZ"
 
-    - name: 合并磁盘
-      uses: easimon/maximize-build-space@master
-      with:
-        swap-size-mb: 1024
-        temp-reserve-mb: 100
-        root-reserve-mb: 1024
-
-    - name: 结续
-      uses: actions/checkout@main
-
     - name: 克隆源代码
       run: |
         df -hT $GITHUB_WORKSPACE
