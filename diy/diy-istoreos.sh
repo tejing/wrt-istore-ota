@@ -14,15 +14,27 @@ wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/he
 mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
 
+# 更改时间戳
+rm -rf scripts/get_source_date_epoch.sh
+cp -af feeds/istoreos_ipk/patch/get_source_date_epoch.sh scripts/
+chmod +x scripts/get_source_date_epoch.sh
+
+# 更改 banner
+rm -rf package/base-files/files/etc/banner
+cp -af feeds/istoreos_ipk/patch/istoreos-24.10/banner package/base-files/files/etc/
+
+##加入作者信息
+sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
+
 # 修改默认IP
 sed -i 's/192.168.100.1/192.168.2.1/g' package/istoreos-files/Makefile
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# TTYD
-sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
-
 # 修改默认密码
 sed -i 's/root:::0:99999:7:::/root:$1$5mjCdAB1$Uk1sNbwoqfHxUmzRIeuZK1:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+
+# TTYD
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 
 # iStoreOS-settings
 git clone --depth=1 -b main https://github.com/Jaykwok2999/istoreos-settings package/default-settings
@@ -60,9 +72,6 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/shar
 # 修改FileBrowser
 sed -i 's/msgstr "FileBrowser"/msgstr "文件浏览器"/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser/po/zh_Hans/filebrowser.po
 sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
-
-##加入作者信息
-sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
 
 # 移除要替换的包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,socat,miniupnpd}
@@ -158,15 +167,6 @@ git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/uti
 sed -i 's,发送,Transmission,g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
 sed -i 's,frp 服务器,frps 服务器,g' feeds/luci/applications/luci-app-frps/po/zh_Hans/frps.po
 sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/po/zh_Hans/frpc.po
-
-# 更改时间戳
-rm -rf scripts/get_source_date_epoch.sh
-cp -af feeds/istoreos_ipk/patch/get_source_date_epoch.sh scripts/
-chmod +x scripts/get_source_date_epoch.sh
-
-# 更改 banner
-rm -rf package/base-files/files/etc/banner
-cp -af feeds/istoreos_ipk/patch/istoreos-24.10/banner package/base-files/files/etc/
 
 # tailscale
 rm -rf feeds/packages/net/tailscale
