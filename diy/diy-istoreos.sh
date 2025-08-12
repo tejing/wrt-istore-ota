@@ -65,7 +65,7 @@ sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser
 sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
 
 # 移除要替换的包
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,socat,miniupnpd}
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,socat,miniupnpd}
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-upnp
 rm -rf feeds/packages/utils/v2dat
@@ -142,6 +142,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/pas
 # golong1.24.x依赖
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
+
 # SSRP & Passwall
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
 cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
