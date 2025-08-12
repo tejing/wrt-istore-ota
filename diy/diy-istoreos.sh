@@ -170,7 +170,7 @@ cp -af feeds/istoreos_ipk/patch/istoreos-24.10/banner package/base-files/files/e
 
 # tailscale
 rm -rf feeds/packages/net/tailscale
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+#sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 # 必要的补丁
 pushd feeds/luci
