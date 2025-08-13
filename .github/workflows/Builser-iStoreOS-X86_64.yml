@@ -73,25 +73,17 @@ jobs:
     - name: 克隆源代码
       run: |
         df -hT $GITHUB_WORKSPACE
-        git clone $REPO_URL -b $REPO_BRANCH istoreos
-        cd istoreos
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        COMMIT_AUTHOR=$(git show -s --date=short --format="作者: %an")
-        echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
-        COMMIT_DATE=$(git show -s --date=short --format="时间: %ci")
-        echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
-        COMMIT_MESSAGE=$(git show -s --date=short --format="内容: %s")
-        echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
-        COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
-        echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
         echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
         echo $(date +"%Y%m%d%H") > version
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
 
     - name: 生成变量
       run: |
-        cp $CONFIG_FILE $ISTOREOS_PATH/.config
-        cd $ISTOREOS_PATH
+        cp $CONFIG_FILE $OPENWRT_PATH/.config
+        cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
         echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
@@ -112,7 +104,7 @@ jobs:
 
     - name: 安装feeds
       run: |
-        cd $istoreos_PATH
+        cd $OPENWRT_PATH
         sed -i "1isrc-git diskman https://github.com/jjm2473/luci-app-diskman.git;dev\n" feeds.conf.default
         sed -i "2isrc-git third_party https://github.com/linkease/istore-packages.git;main\n" feeds.conf.default
         sed -i "3isrc-git jjm2473_apps https://github.com/jjm2473/openwrt-apps.git;main\n" feeds.conf.default        
@@ -125,8 +117,8 @@ jobs:
 
     - name: 加载自定义配置
       run: |
-        [ -e files ] && mv files $ISTOREOS_PATH/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $ISTOREOS_PATH/.config
+        [ -e files ] && mv files $OPENWRT_PATH/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
         chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         chmod +x $DIY_SCRIPT
         cd $ISTOREOS_PATH
@@ -135,7 +127,7 @@ jobs:
 
     - name: 下载软件包
       run: |
-        cd $ISTOREOS_PATH
+        cd $OPENWRT_PATH
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
@@ -144,7 +136,7 @@ jobs:
     - name: 编译固件
       id: compile
       run: |
-        cd $ISTOREOS_PATH
+        cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
@@ -164,9 +156,9 @@ jobs:
     - name: 整理文件
       if: steps.compile.outputs.status == 'success'
       run: |
-        cd $ISTOREOS_PATH/bin/targets/*/*
+        cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
-        cp $ISTOREOS_PATH/.config build.config
+        cp $OPENWRT_PATH/.config build.config
         mv -f $ISTOREOS_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
         rm -rf feeds.buildinfo version.buildinfo build.config istoreos-x86-64-generic.manifest istoreos-x86-64-generic-squashfs-rootfs.img.gz istoreos-x86-64-generic-kernel.bin istoreos-x86-64.manifest istoreos-x86-64-generic-initramfs-kernel.bin config.buildinfo 
