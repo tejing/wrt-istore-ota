@@ -14,10 +14,10 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo "src-git diskman https://github.com/jjm2473/luci-app-diskman.git;dev\n" feeds.conf.default
-echo "src-git third_party https://github.com/linkease/istore-packages.git;main\n" feeds.conf.default
-echo "src-git jjm2473_apps https://github.com/jjm2473/openwrt-apps.git;main\n" feeds.conf.default
-echo "src-git istoreos_ipk https://github.com/Jaykwok2999/istoreos-ipk.git;main\n" feeds.conf.default
-echo "src-git theme https://github.com/Jaykwok2999/istoreos-theme.git;main\n" feeds.conf.default
-echo "src-git turboacc https://github.com/chenmozhijin/turboacc.git;luci\n" feeds.conf.default  
-echo "src-git socat https://github.com/Jaykwok2999/socat.git;main\n" feeds.conf.default
+#echo "src-git diskman https://github.com/jjm2473/luci-app-diskman.git;dev\n" feeds.conf.default
+#echo "src-git third_party https://github.com/linkease/istore-packages.git;main\n" feeds.conf.default
+#echo "src-git jjm2473_apps https://github.com/jjm2473/openwrt-apps.git;main\n" feeds.conf.default
+#echo "src-git istoreos_ipk https://github.com/Jaykwok2999/istoreos-ipk.git;main\n" feeds.conf.default
+#echo "src-git theme https://github.com/Jaykwok2999/istoreos-theme.git;main\n" feeds.conf.default
+#echo "src-git turboacc https://github.com/chenmozhijin/turboacc.git;luci\n" feeds.conf.default  
+#echo "src-git socat https://github.com/Jaykwok2999/socat.git;main\n" feeds.conf.default
