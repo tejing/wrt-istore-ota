@@ -170,7 +170,7 @@ sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/
 
 # tailscale
 rm -rf feeds/packages/net/tailscale
-#sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 # 必要的补丁
 pushd feeds/luci
