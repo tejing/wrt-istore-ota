@@ -16,7 +16,8 @@ wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/he
 
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
-cp -af feeds/istoreos_ipk/patch/get_source_date_epoch.sh scripts/
+mkdir -p scripts
+wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/diy/get_source_date_epoch.sh > scripts/get_source_date_epoch.sh
 chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
