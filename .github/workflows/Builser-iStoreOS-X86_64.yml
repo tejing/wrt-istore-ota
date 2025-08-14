@@ -105,6 +105,7 @@ jobs:
         sed -i "7isrc-git socat https://github.com/Jaykwok2999/socat.git;main\n" feeds.conf.default          
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+
     - name: 加载自定义配置
       run: |
         [ -e files ] && mv files $OPENWRT_PATH/files
