@@ -153,11 +153,11 @@ cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-s
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
-rm -rf package/feeds/packages/rust
-git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
+#rm -rf package/feeds/packages/rust
+#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
 
-rm -rf package/feeds/packages/node
-git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
+#rm -rf package/feeds/packages/node
+#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
 
 # upnp调至NAS
 sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
@@ -172,8 +172,8 @@ sed -i 's,frp 服务器,frps 服务器,g' feeds/luci/applications/luci-app-frps/
 sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/po/zh_Hans/frpc.po
 
 # tailscale
-rm -rf feeds/packages/net/tailscale
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+#rm -rf feeds/packages/net/tailscale
+#sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 # 必要的补丁
 pushd feeds/luci
