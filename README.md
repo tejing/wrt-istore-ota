@@ -16,6 +16,8 @@
 
 ![screenshots](./diy/iStoreOS3.png)
 
+## 部分插件可以以下链接下载run插件包安装
+https://github.com/Jaykwok2999/RunFilesBuilder/releases
 
 | 内置插件                 | 状态 | 内置插件         | 状态 |
 |:------------------------:|:----:|:----------------:|:----:|
