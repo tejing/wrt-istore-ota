@@ -10,8 +10,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/istoreos/istoreos.git
-  REPO_BRANCH: istoreos-24.10
+  REPO_URL: https://github.com/openwrt/openwrt.git
+  REPO_BRANCH: openwrt-24.10
   CONFIG_FILE: configs/x86_64_OpenWrt.config
   DIY_SCRIPT: diy/diy-OpenWrt.sh
   CLASH_KERNEL: amd64
@@ -176,7 +176,7 @@ jobs:
           💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
           📂 固件源码: ${{ env.REPO_URL }}
           🌳 源码分支: ${{ env.REPO_BRANCH }}
-          🚀 内核版本: 6.6.93
+          🚀 内核版本: ${{ env.KERNEL }}
           🌐 默认地址: 192.168.2.1
           👤 用户名: root
           🔒 默认密码: password
