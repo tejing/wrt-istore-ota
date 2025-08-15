@@ -1,4 +1,4 @@
-name: Update Checker
+name: iStoreOS-Update-Checker
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos.git
