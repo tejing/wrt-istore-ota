@@ -240,15 +240,15 @@ jobs:
             };
             const fs = require('fs');
             fs.mkdirSync('tmp-api', { recursive: true });
-            fs.writeFileSync('tmp-api/fw.json', JSON.stringify(json, null, 4));
+            fs.writeFileSync('tmp-api/opfw.json', JSON.stringify(json, null, 4));
 
       - name: 检出API分支
         run: |
           git fetch origin api:api
           git checkout api
-          cp tmp-api/fw.json .
+          cp tmp-api/opfw.json .
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add fw.json
-          git commit -m "Update fw.json @ $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git commit -m "Update opfw.json @ $(date +'%Y-%m-%d')" || echo "No changes to commit"
           git push origin api
