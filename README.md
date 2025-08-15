@@ -21,7 +21,7 @@
 |:------------------------:|:----:|:----------------:|:----:|
 | PassWall                 | ⏳   | iStoreOS界面     | ✅   |
 | HomeProxy                | ⏳   | TTY 终端         | ✅   |
-| pushbot                  | ✅   |  Docker          | ✅   |
+| pushbot                  | ⏳   |  Docker          | ✅   |
 | openclash                | ⏳   | DiskMan 磁盘管理 | ✅   |
 | MosDNS                   | ⏳  | Socat端口转发           | ✅   |
 | 动态 DNS                 | ✅   | UPnP            | ✅   |
@@ -31,9 +31,9 @@
 | msd_lite组播转换         | ⏳   |  tailscale       | ⏳   |
 | 网络共享（Samba）        | ✅   |  iStore商店      | ✅   |
 | omcproxy组播代理         | ⏳   |  onliner在线用户    | ✅   |
-| udpxy组播转换            | ⏳   |               | ⏳   |
+| udpxy组播转换            | ⏳   |   MiniDLNA     | ✅  |
 | Alist 文件列表           | ⏳   |                | ⏳   |
-| filebrowser              | ✅   |               | ⏳   |
+| filebrowser              | ⏳   |               | ⏳   |
 
 ✅ 可用
 
