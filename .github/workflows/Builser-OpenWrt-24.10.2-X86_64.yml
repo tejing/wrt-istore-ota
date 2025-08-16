@@ -3,11 +3,6 @@ name: Builser-OpenWrt-24.10.2-X86_64
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
@@ -151,7 +146,7 @@ jobs:
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
-        rm -rf feeds.buildinfo version.buildinfo build.config istoreos-x86-64-generic.manifest istoreos-x86-64-generic-squashfs-rootfs.img.gz istoreos-x86-64-generic-kernel.bin istoreos-x86-64.manifest istoreos-x86-64-generic-initramfs-kernel.bin config.buildinfo 
+        rm -rf feeds.buildinfo version.buildinfo build.config openwrt-x86-64-generic-initramfs-kernel.bin openwrt-x86-64-generic-kernel.bin openwrt-x86-64.manifest openwrt-x86-64-generic-squashfs-rootfs.img.gz config.buildinfo 
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
@@ -166,7 +161,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE == 'true'
       uses: ncipollo/release-action@v1
       with:
-        name: istoreos-24.10.2 for ${{ env.DATE }}
+        name: OpenWrt-24.10 for ${{ env.DATE }}
         allowUpdates: true
         tag: ${{ env.FIRMWARE_TAG }}
         token: ${{ secrets.GITHUB_TOKEN }}
