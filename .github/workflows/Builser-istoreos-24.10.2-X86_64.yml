@@ -3,11 +3,6 @@ name: Builser-istoreos-24.10.2-X86_64
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos.git
