@@ -249,6 +249,6 @@ jobs:
           cp tmp-api/opfw.json .
           git config user.name "actions-user"
           git config user.email "actions@github.com"
-          git add fw.json
+          git add opfw.json
           git commit -m "Update opfw.json @ $(date +'%Y-%m-%d')" || echo "No changes to commit"
           git push origin api
