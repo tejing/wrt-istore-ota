@@ -2,7 +2,7 @@
 mkdir -p files/etc/config
 #wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/openclash > files/etc/config/openclash
 #wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/proxy/openclash > files/etc/config/openclash
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
+#wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
 #wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
 
 mkdir -p files/etc
@@ -53,7 +53,7 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 
 # minidlna调至NAS
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
+#sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
 
 # linkease调至NAS
 # rm -rf feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
@@ -77,7 +77,7 @@ sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser
 # 移除要替换的包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,socat}
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
-rm -rf feeds/luci/applications/luci-app-upnp
+# rm -rf feeds/luci/applications/luci-app-upnp
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/third_party/luci-app-LingTiGameAcc
 rm -rf feeds/third_party/luci-app-socat
@@ -141,7 +141,7 @@ git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-pppoe-relay
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
 #git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
 #git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
@@ -161,7 +161,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 #git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
 
 # upnp调至NAS
-sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+# sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
 # unzip
 rm -rf feeds/packages/utils/unzip
