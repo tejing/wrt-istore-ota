@@ -151,7 +151,7 @@ jobs:
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
-        rm -rf feeds.buildinfo version.buildinfo build.config istoreos-x86-64-generic.manifest istoreos-x86-64-generic-squashfs-rootfs.img.gz istoreos-x86-64-generic-kernel.bin istoreos-x86-64.manifest istoreos-x86-64-generic-initramfs-kernel.bin config.buildinfo 
+        rm -rf feeds.buildinfo version.buildinfo build.config openwrt-x86-64-generic-initramfs-kernel.bin openwrt-x86-64-generic-kernel.bin openwrt-x86-64.manifest openwrt-x86-64-generic-squashfs-rootfs.img.gz config.buildinfo 
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
