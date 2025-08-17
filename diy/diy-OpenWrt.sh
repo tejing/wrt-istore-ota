@@ -22,7 +22,7 @@ chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
 rm -rf package/base-files/files/etc/banner
-cp -af feeds/istoreos_ipk/patch/istoreos-24.10/banner package/base-files/files/etc/
+cp -af feeds/istoreos_ipk/patch/OpenWrt/banner package/base-files/files/etc/
 
 ##加入作者信息
 sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
