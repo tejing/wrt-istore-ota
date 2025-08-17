@@ -137,6 +137,7 @@ function merge_package() {
 git_sparse_clone main https://github.com/Jaykwok2999/socat luci-app-socat
 git_sparse_clone main https://github.com/Jaykwok2999/socat socat
 git_sparse_clone main https://github.com/Jaykwok2999/openwrt-theme luci-app-argon-config
+git_sparse_clone main https://github.com/Jaykwok2999/openwrt-theme luci-theme-argon
 git_sparse_clone main https://github.com/Jaykwok2999/openwrt_ota luci-app-ota
 git_sparse_clone main https://github.com/Jaykwok2999/openwrt_ota fw_download_tool
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
