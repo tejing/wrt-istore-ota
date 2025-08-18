@@ -1,1 +1,1 @@
-publicPath: '/Jaykwok2999/istoreos-actions/'
+publicPath: '/tejing/wrt-istore-ota/'
