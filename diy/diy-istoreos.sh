@@ -1,23 +1,23 @@
 #!/bin/bash
 mkdir -p files/etc/config
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/openclash > files/etc/config/openclash
+#wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/openclash > files/etc/config/openclash
 #wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/proxy/openclash > files/etc/config/openclash
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
+#wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
+#wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
 
 mkdir -p files/etc
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
+cp -f $GITHUB_WORKSPACE/etc/opkg.conf files/etc/opkg.conf
 mkdir -p files/etc/opkg
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
+cp -f $GITHUB_WORKSPACE/etc/distfeeds.conf files/etc/opkg/distfeeds.conf-86
+cp -f $GITHUB_WORKSPACE/etc/distfeeds.conf files/etc/opkg/distfeeds.conf
 
 mkdir -p files/root
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
+cp -f $GITHUB_WORKSPACE/etc/.profile files/root/.profile
 
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
 mkdir -p scripts
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/patch/get_source_date_epoch.sh > scripts/get_source_date_epoch.sh
+cp -f $GITHUB_WORKSPACE/patch/get_source_date_epoch.sh scripts/get_source_date_epoch.sh
 chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
@@ -75,10 +75,10 @@ sed -i 's/msgstr "FileBrowser"/msgstr "文件浏览器"/g' feeds/istoreos_ipk/op
 sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 
 # 移除要替换的包
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,socat,miniupnpd,smartdns}
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,socat}
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-upnp
-rm -rf feeds/luci/applications/smartdns
+#rm -rf feeds/luci/applications/smartdns
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/third_party/luci-app-LingTiGameAcc
 rm -rf feeds/third_party/luci-app-socat
@@ -140,16 +140,17 @@ git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-arg
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
-git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
-git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
-git clone https://github.com/pymumu/luci-app-smartdns.git luci-app-smartdns
-git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-pppoe-relay
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
+#git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
+#git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
+#git clone https://github.com/pymumu/luci-app-smartdns.git luci-app-smartdns
+#git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 
 # SSRP & Passwall
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
-cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
+#cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
 
 # golong1.24.x依赖
 rm -rf feeds/packages/lang/golang
