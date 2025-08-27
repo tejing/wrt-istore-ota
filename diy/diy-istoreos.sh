@@ -151,6 +151,12 @@ git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
 cp -af feeds/istoreos_ipk/patch/un.svg package/luci-app-passwall/root/www/luci-static/passwall/flags/
 
+# samba4
+rm -rf feeds/packages/libs/liburing
+git clone https://github.com/sbwml/feeds_packages_libs_liburing feeds/packages/libs/liburing
+rm -rf feeds/packages/net/samba4
+git clone https://github.com/sbwml/feeds_packages_net_samba4 feeds/packages/net/samba4
+
 # golong1.24.x依赖
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
