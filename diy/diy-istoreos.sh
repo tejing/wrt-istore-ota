@@ -157,9 +157,9 @@ git clone https://github.com/sbwml/feeds_packages_libs_liburing feeds/packages/l
 rm -rf feeds/packages/net/samba4
 git clone https://github.com/sbwml/feeds_packages_net_samba4 feeds/packages/net/samba4
 
-# golong1.24.x依赖
+# golong25.x依赖
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 #rm -rf package/feeds/packages/rust
 #git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
@@ -184,13 +184,13 @@ sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/
 #sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 # 必要的补丁
-pushd feeds/luci
-   curl -s https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
-popd
+# pushd feeds/luci
+#   curl -s https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
+# popd
 
-pushd
-   curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-popd
+# pushd
+#    curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+# popd
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
