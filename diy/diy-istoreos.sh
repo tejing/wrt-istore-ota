@@ -161,18 +161,18 @@ git clone https://github.com/sbwml/feeds_packages_net_samba4 feeds/packages/net/
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
-#rm -rf package/feeds/packages/rust
-#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
+# rm -rf package/feeds/packages/rust
+# git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
 
-#rm -rf package/feeds/packages/node
-#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
+# rm -rf package/feeds/packages/node
+# git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
 
 # upnp调至NAS
 sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
 # unzip
-rm -rf feeds/packages/utils/unzip
-git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
+# rm -rf feeds/packages/utils/unzip
+# git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
 
 # frpc名称
 sed -i 's,发送,Transmission,g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
