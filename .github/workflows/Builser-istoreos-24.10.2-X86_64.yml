@@ -145,10 +145,10 @@ jobs:
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
-        tar -zcf Packages.tar.gz packages
-        rm -rf feeds.buildinfo version.buildinfo build.config istoreos-x86-64-generic.manifest istoreos-x86-64-generic-squashfs-rootfs.img.gz config.buildinfo 
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
+        tar -zcf Packages.tar.gz packages
+        rm -rf feeds.buildinfo version.buildinfo build.config istoreos-x86-64-generic.manifest istoreos-x86-64-generic-squashfs-rootfs.img.gz config.buildinfo
 
     - name: 将固件上传到 Artifact
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE != 'true'
