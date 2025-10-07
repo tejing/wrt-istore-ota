@@ -76,6 +76,8 @@ sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser
 
 # 移除要替换的包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,miniupnpd}
+rm -rf feeds/istoreos_ipk/caddy
+rm -rf feeds/istoreos_ipk/luci-app-caddy
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-upnp
 # rm -rf feeds/luci/applications/smartdns
