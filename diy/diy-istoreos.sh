@@ -155,8 +155,8 @@ git clone https://github.com/sbwml/feeds_packages_net_samba4 feeds/packages/net/
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
-# rm -rf package/feeds/packages/rust
-# git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
+rm -rf package/feeds/packages/rust
+git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
 
 # rm -rf package/feeds/packages/node
 # git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
