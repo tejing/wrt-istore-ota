@@ -135,7 +135,8 @@ function merge_package() {
     cd "$rootdir"
 }
 
-
+git_sparse_clone main https://github.com/Jaykwok2999/socat.git luci-app-socat
+git_sparse_clone main https://github.com/Jaykwok2999/socat.git socat
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-argon-config
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
@@ -146,8 +147,6 @@ git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
 git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
 # git clone https://github.com/pymumu/luci-app-smartdns.git luci-app-smartdns
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
-git clone https://github.com/Jaykwok2999/socat.git luci-app-socat
-git clone https://github.com/Jaykwok2999/socat.git socat
 
 
 # SSRP & Passwall
