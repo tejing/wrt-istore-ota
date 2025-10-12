@@ -146,6 +146,9 @@ git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
 git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
 # git clone https://github.com/pymumu/luci-app-smartdns.git luci-app-smartdns
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
+git clone https://github.com/Jaykwok2999/socat.git luci-app-socat
+git clone https://github.com/Jaykwok2999/socat.git socat
+
 
 # SSRP & Passwall
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
