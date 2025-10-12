@@ -55,17 +55,10 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/
 # minidlna调至NAS
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
 
-# linkease调至NAS
-# rm -rf feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
-# cp -af feeds/istoreos_ipk/patch/diy/index.js feeds/linkease_luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
-# sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/controller/linkease.lua
-# sed -i 's/services/nas/g' feeds/linkease_luci/luci/luci-app-linkease/luasrc/view/linkease_status.htm
-
-
 # Alist调至NAS
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
-sed -i 's/msgstr "AList"/msgstr "AList文件列表"/g' feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
-sed -i 's/msgstr "AList"/msgstr "AList文件列表"/g' feeds/luci/applications/luci-app-alist/po/zh_Hant/alist.po
+#sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
+#sed -i 's/msgstr "AList"/msgstr "AList文件列表"/g' feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+#sed -i 's/msgstr "AList"/msgstr "AList文件列表"/g' feeds/luci/applications/luci-app-alist/po/zh_Hant/alist.po
 
 # HD磁盘工具调至NAS
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
@@ -135,8 +128,7 @@ function merge_package() {
     cd "$rootdir"
 }
 
-git_sparse_clone main https://github.com/Jaykwok2999/socat.git luci-app-socat
-git_sparse_clone main https://github.com/Jaykwok2999/socat.git socat
+
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-theme luci-app-argon-config
 git_sparse_clone main https://github.com/Jaykwok2999/istoreos-ota luci-app-ota
 git_sparse_clone main https://github.com/zijieKwok/github-ota fw_download_tool
