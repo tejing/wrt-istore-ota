@@ -162,9 +162,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 rm -rf package/feeds/packages/rust
 git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
 
-# rm -rf package/feeds/packages/node
-# git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
-
 # upnp调至NAS
 sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
