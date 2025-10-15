@@ -72,7 +72,7 @@ sed -i 's/msgid "Socat"/msgid "端口转发"/g' feeds/third_party/luci-app-socat
 sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/third_party/luci-app-socat/po/zh-cn/socat.po
 
 # 移除要替换的包
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,miniupnpd}
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,v2ray-geoip,microsocks,adguardhome,miniupnpd,sing-box}
 rm -rf feeds/istoreos_ipk/caddy
 rm -rf feeds/istoreos_ipk/luci-app-caddy
 # rm -rf feeds/packages/net/alist feeds/luci/applications/luci-app-alist
@@ -161,9 +161,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 
 rm -rf package/feeds/packages/rust
 git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
-
-# rm -rf package/feeds/packages/node
-# git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/node
 
 # upnp调至NAS
 sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
