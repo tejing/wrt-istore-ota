@@ -17,7 +17,7 @@ mkdir -p files/etc/config
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
 mkdir -p scripts
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/patch/get_source_date_epoch.sh > scripts/get_source_date_epoch.sh
+cp -f $GITHUB_WORKSPACE/diy/get_source_date_epoch.sh scripts/get_source_date_epoch.sh
 chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
@@ -180,9 +180,9 @@ sed -i 's,frp 客户端,frpc 客户端,g' feeds/luci/applications/luci-app-frpc/
 #sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 # 必要的补丁
-pushd feeds/luci
-  curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-popd
+#pushd feeds/luci
+  #curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+#popd
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
