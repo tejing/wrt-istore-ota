@@ -17,7 +17,7 @@ mkdir -p files/etc/config
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
 mkdir -p scripts
-cp -f diy/get_source_date_epoch.sh scripts/get_source_date_epoch.sh
+cp -f $GITHUB_WORKSPACE/diy/get_source_date_epoch.sh scripts/get_source_date_epoch.sh
 chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
