@@ -21,16 +21,16 @@ https://github.com/Jaykwok2999/RunFilesBuilder/releases
 
 | 内置插件                 | 状态 | 内置插件         | 状态 |
 |:------------------------:|:----:|:----------------:|:----:|
-| PassWall                 | ⏳   | iStoreOS界面     | ✅   |
+| PassWall                 | ✅   | iStoreOS界面     | ✅   |
 | HomeProxy                | ⏳   | TTY 终端         | ✅   |
-| pushbot                  | ⏳   |  Docker          | ✅   |
-| openclash                | ⏳   | DiskMan 磁盘管理 | ✅   |
-| MosDNS                   | ⏳  | Socat端口转发           | ✅   |
+| pushbot                  | ✅   |  Docker          | ✅   |
+| openclash                | ✅   | DiskMan 磁盘管理 | ✅   |
+| MosDNS                   | ✅  | Socat端口转发           | ✅   |
 | 动态 DNS                 | ✅   | UPnP            | ✅   |
-| DDNS-GO                 | ✅   | mwan3负载均匀            | ⏳   |
+| DDNS-GO                 | ✅   | mwan3负载均匀            | ✅   |
 | smartdns                | ⏳   | turboacc网络加速         | ⏳   |
 | FRP 客户端               | ✅   | taskplan任务设置         | ⏳   |
-| msd_lite组播转换         | ⏳   |  tailscale       | ⏳   |
+| msd_lite组播转换         | ⏳   |  tailscale       | ✅   |
 | 网络共享（Samba）        | ✅   |  iStore商店      | ✅   |
 | omcproxy组播代理         | ⏳   |  onliner在线用户    | ✅   |
 | udpxy组播转换            | ⏳   |   MiniDLNA     | ✅  |
