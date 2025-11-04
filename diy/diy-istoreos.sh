@@ -160,8 +160,8 @@ git clone https://github.com/sbwml/feeds_packages_net_samba4 feeds/packages/net/
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
-#rm -rf package/feeds/packages/rust
-#git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
+rm -rf package/feeds/packages/rust
+git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/packages lang/rust
 
 # upnp调至NAS
 sed -i 's/services/nas/g' package/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
