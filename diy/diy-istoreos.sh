@@ -5,11 +5,11 @@
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
 
-# mkdir -p files/etc
-# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
-# mkdir -p files/etc/opkg
-# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
-# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
+mkdir -p files/etc
+cp -f $GITHUB_WORKSPACE/etc/opkg.conf files/etc/opkg.conf
+mkdir -p files/etc/opkg
+cp -f $GITHUB_WORKSPACE/etc/distfeeds.conf files/etc/opkg/distfeeds.conf-86
+cp -f $GITHUB_WORKSPACE/etc/distfeeds.conf files/etc/opkg/distfeeds.conf
 
 # mkdir -p files/root
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
