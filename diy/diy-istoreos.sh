@@ -1,15 +1,15 @@
 #!/bin/bash
-mkdir -p files/etc/config
+# mkdir -p files/etc/config
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/openclash > files/etc/config/openclash
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/proxy/openclash > files/etc/config/openclash
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/mosdns > files/etc/config/mosdns
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-ipk/refs/heads/main/patch/diy/smartdns > files/etc/config/smartdns
 
-mkdir -p files/etc
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
-mkdir -p files/etc/opkg
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
+# mkdir -p files/etc
+# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
+# mkdir -p files/etc/opkg
+# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf-86
+# wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/distfeeds.conf > files/etc/opkg/distfeeds.conf
 
 # mkdir -p files/root
 # wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/etc/.profile > files/root/.profile
@@ -17,7 +17,7 @@ wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/he
 # 更改时间戳
 rm -rf scripts/get_source_date_epoch.sh
 mkdir -p scripts
-wget -qO- https://raw.githubusercontent.com/Jaykwok2999/istoreos-actions/refs/heads/main/patch/get_source_date_epoch.sh > scripts/get_source_date_epoch.sh
+cp -f $GITHUB_WORKSPACE/diy/get_source_date_epoch.sh scripts/get_source_date_epoch.sh
 chmod +x scripts/get_source_date_epoch.sh
 
 # 更改 banner
@@ -144,9 +144,9 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerma
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-upnp
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages miniupnpd
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-pppoe-relay
-git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
+#git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
 #git clone https://github.com/Jaykwok2999/passwall-packages.git package/passwall_packages
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall_packages
+#git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall_packages
 # git clone https://github.com/pymumu/luci-app-smartdns.git luci-app-smartdns
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 
