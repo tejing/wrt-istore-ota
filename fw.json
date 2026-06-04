@@ -1,14 +1,14 @@
 {
   "x86_64": [
     {
-      "x86_64": "20260604",
-      "build_date": "1780516791",
-      "filename": "istoreos-24.10.5-2026060408-x86-64-squashfs-combined-efi.img.gz",
-      "size": 301684571,
-      "sha256sum": "15b7d40de1ecbd5b298f19a8a174ecf299330b1d39dd2366926808428087d134",
-      "url": "https://pro.sos07.eu.org/https://github.com/tejing/wrt-istore-ota/releases/download/20260604/istoreos-24.10.5-2026060408-x86-64-squashfs-combined-efi.img.gz",
-      "release_url": "https://github.com/tejing/wrt-istore-ota/releases/tag/20260604"
+      "x86_64": "20260605",
+      "build_date": "1780597966",
+      "filename": "istoreos-24.10.5-2026060506-x86-64-squashfs-combined-efi.img.gz",
+      "size": 302382348,
+      "sha256sum": "744d6ca1bdf051c1ecebb244b53957e68eb3aca57412532d45ba39b29095d978",
+      "url": "https://pro.sos07.eu.org/https://github.com/tejing/wrt-istore-ota/releases/download/20260605/istoreos-24.10.5-2026060506-x86-64-squashfs-combined-efi.img.gz",
+      "release_url": "https://github.com/tejing/wrt-istore-ota/releases/tag/20260605"
     }
   ],
-  "count": 10
+  "count": 11
 }
